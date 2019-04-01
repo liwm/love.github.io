@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Keywords" Content="我们的爱情沙漏 ">
+  <meta NAME="Description" CONTENT="时光沙漏">
+<title>爱情时光沙漏 </title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv"  >
+	<div id="content">
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					我们相恋已有：
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu" style="margin-right: 70px;">
+					时间沙漏~boy:李伟民,girl:陶瑞芳<br/>
+				</div>
+			</div>
+			<div style="position: fixed;bottom:5px;right:10px; font-family: 'sans-serif';font-size: 16px;color: #666;">
+				<script type="text/javascript"> 	 
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2018, 12, 31);
+together.setHours(0);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 1);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=0 height=0 src="song.mp3"></iframe>
+</body>
+</html>
